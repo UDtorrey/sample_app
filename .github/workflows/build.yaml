@@ -20,15 +20,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-
-      - name: Install dependencies
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
-        run: yarn install --freeze-dependencies
+      - name: Informational Message
+        run: echo You need to setup proper branch protection rules and status checks
 
       - name: Build project
-        run: yarn build
+        run: exit 99
